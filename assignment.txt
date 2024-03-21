@@ -1,0 +1,132 @@
+Git Assignment
+
+    1. How do you initialize a new Git repository named "project1" on your local machine?  
+You initialize by “Git init”
+    2. How do you add a new file named "index.html" to the "project1" repository? 
+  You add a name file by “Touch index.html”
+    3. How do you stage the changes made to "index.html" for committing? 
+ You changing the stages by “ Git add index.html “  
+    4. How do you commit the changes made to "index.html" with a commit message of "Add index.html"? 
+ You commit the changes by  Git commit -m “Add index.html”
+    5. How do you view the commit history of the "project1" repository? 
+You view commit history by Git log
+    6. How do you create a new branch named "feature-branch" in the "project1" repository? 
+You create a new branch named by using Git checkout -b feature-branch
+    7. How do you switch to the "feature-branch" in the "project1" repository? 
+You switch by Git checkout feature-branch
+    8. How do you make changes to "index.html" in the "feature-branch"?
+ You make changes by Edit the file in a text editor
+    9. How do you stage and commit the changes made in the "feature-branch" with a commit message of "Update index.html in feature branch"? 
+You stage and commit by Git add index.html
+    10. How do you switch back to the main branch in the "project1" repository? 
+You switch back by Git checkout main
+    11. How do you merge the changes from the "feature-branch" into the main branch? 
+You merge the changes by Git merge feature-branch
+    12. How do you resolve any merge conflicts that occur during the merge process? 
+You resolve it by open the file(s) containing conflicts and delete one of the duplicate sections of conflicting code along with the conflict markers (<<< === HEAD, etc). Afterward, proceed to add and commit the file again, providing a message that describes the conflict resolution or using the default message. 
+    13. How do you view the changes introduced by the merge commit? 
+You view changes by Git diff
+    14. How do you create a new tag named "v1.0" for the current commit in the "project1" repository? 
+Git tag v1.0  git tag -a v1.0 <commit hash>
+    15. How do you push the "project1" repository to a remote repository named "origin"? 
+Git push -u origin master
+    16. How do you clone the "project1" repository from a remote repository to another machine?
+ Git clone git@github.com:<user_name>/project1.git
+    17. How do you fetch the latest changes from the remote repository to your local "project1" repository? 
+Git fetch
+    18. How do you pull the latest changes from the remote repository into your current branch in the "project1" repository?
+ Git pull
+    19. How do you create a new branch named "bug-fix" in the "project1" repository based on a specific commit? 
+Git checkout -b bug-fix <commit hash>
+    20. How do you revert the last commit made in the "project1" repository? 
+git stash
+
+
+
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git remote add origin https://github.com/abbasbbkarr/project1.git
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/Abbas Abbkar/Documents/project1/.git/
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 217 bytes | 217.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/abbasbbkarr/project1.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   indexhtml.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        project1.
+        txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git add indexhtml. txt
+fatal: pathspec 'indexhtml.' did not match any files
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git add indexhtml.txt
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git branch feature
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git checkout feature
+Switched to branch 'feature'
+M       indexhtml.txt
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (feature)
+$ git add indexhtml.txt
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (feature)
+$ git commit -m " Two branches"
+[feature 7f0189e]  Two branches
+ 1 file changed, 1 insertion(+)
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (feature)
+$ checkout master
+bash: checkout: command not found
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (feature)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git merge feature
+Updating e4daeb9..7f0189e
+Fast-forward
+ indexhtml.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+Abbas Abbkar@LAPTOP-HBVLPV2-ABBKAR MINGW64 ~/documents/project1 (master)
+$ git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 261 bytes | 261.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/abbasbbkarr/project1.git
+   e4daeb9..7f0189e  master -> master
+branch 'master' set up to track 'origin/master'.
+
+
+
+
