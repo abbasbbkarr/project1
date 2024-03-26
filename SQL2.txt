@@ -1,0 +1,216 @@
+SQL 
+1.Types of commands and their examples.
+DDL: Creat, drop, truncate
+DML: Delete, insert, update
+DCL: Grant, Revoke
+DQL: Seletc, Retrieve data from one or more
+DTC: Commit, rollback
+
+2.What is Normalization and denormalization? 
+Normalization aims to reduce redundancy and improve data integrity by decomposing tables into smaller, related tables, while denormalization sacrifices some normalization benefits in favor of improved query performance by adding redundancy and simplifying data retrieval.
+
+3.Explain 1NF, 2NF, 3NF.
+
+To meet 1NF, a table must have the following properties:
+Each table cell must contain a single value.
+Entries in a column must be of the same data type.
+Each column must have a unique name.
+The order of rows and columns is insignificant.
+
+To achieve 2NF, a table must already be in 1NF and must satisfy the following additional conditions:
+All non-key attributes are fully functionally dependent on the entire primary key.
+
+To attain 3NF, a table must already be in 2NF and must meet the following additional condition:
+All attributes that are not dependent on the primary key must be eliminated.
+
+4.Share use case where you had to do denormalization in database..
+
+Imagine you're working on an e-commerce website that sells a variety of products. The website has a transactional database that stores information about customers, orders, and products. The database is normalized to ensure data integrity and minimize redundancy.
+However, the marketing team frequently runs reports to analyze sales performance based on various criteria, such as product categories, customer locations, or time periods. These reports involve complex JOIN operations across multiple tables and can be slow to execute, especially when dealing with large datasets.
+To improve the performance of these reports, you decide to denormalize certain data and create a dedicated reporting database optimized for analytics.
+
+
+5.What is primary key and foreign key?
+A primary key uniquely identifies each record in a table, while a foreign key establishes a relationship between tables by referencing the primary key of another table.
+
+6.what is alternate and candidate key?
+candidate keys are sets of columns that uniquely identify rows in a table, and an alternate key is a candidate key that is not chosen as the primary key.
+
+7.What are window functions?
+
+Allow you to perform calculations across a set of rows related to the current row within a query result set
+
+8.Explain Ranking Functions? GIven a small table , write the output.
+
+ROW_NUMBER():Assigns a unique sequential integer to each row within a partition, without any gaps.
+
+RANK(): Assigns a unique rank to each distinct value within a partition, leaving gaps in case of ties. If two rows have the same value, they receive the same rank, and the next rank is skipped.
+
+DENSE_RANK(): Similar to RANK(), but does not leave gaps in the ranking for tied values. If two or more rows have the same value, they receive the same rank, and the subsequent rank increments by one.
+
+NTILE(n): Divides the rows within a partition into 'n' groups or buckets based on the specified order. The function assigns an integer value from 1 to 'n' to each row, indicating the group to which it belongs
+
+9.Types of Joins? With example and usecase. All the number of records return and exact records.
+
+INNER JOIN: Returns only the rows where there is a match in both tables based on the join condition.
+Use Case: When you need to retrieve only the records that have matching values in both tables.
+
+LEFT JOIN :Returns all rows from the left table and the matched rows from the right table. If there is no match, Use Case: When you need to retrieve all records from the left table and matching records from the right table
+
+
+RIGHT JOIN: Returns all rows from the right table and the matched rows from the left table. If there is no match, NULL values are returned for columns from the left table.
+Use Case: When you need to retrieve all records from the right table and matching records from the left table
+
+FULL JOIN: Returns all rows when there is a match in either table. If there is no match, NULL values are returned for columns from the table without a match.
+Use Case: When you need to retrieve all records from both tables, including matching and non-matching rows.
+
+10.Use case when self join is required.
+
+Consider a scenario where you have an organizational chart stored in a table called Employees, where each employee has a ManagerID column indicating the ID of their manager. You want to retrieve a report showing each employee along with their manager's name.
+
+
+11.What is subquery?
+a subquery, also known as an inner query or nested query, is a query nested within another query. It allows you to perform operations based on the results of another query. Subqueries can be used in various parts of a SQL statement, including the SELECT, FROM, WHERE, HAVING, and INSERT clauses.
+
+12.What is corelated subquery?
+
+Correlated Subquery: is a subquery that references columns from the outer query.
+It executes once for each row processed by the outer query.
+
+13.What is CTE?
+
+CTE stands for Common Table Expression. It is a temporary named result set that you can reference within a SELECT, INSERT, UPDATE, or DELETE statement. 
+
+14.What is derived table?
+
+A temporary table that is created as the result of a subquery in the FROM clause. It allows you to encapsulate complex logic and calculations within a subquery and treat the result set of that subquery as a table that can be queried further.
+
+15.Find third highest employee based on salary?
+
+SELECT employee_id, employee_name, salary
+FROM (
+    SELECT 
+        employee_id,
+        employee_name,
+        salary,
+        ROW_NUMBER() OVER (ORDER BY salary DESC) AS salary_rank
+    FROM employees
+) AS ranked_employees
+WHERE salary_rank = 3;
+
+
+16.Find third highest employee based on salary  per department?
+
+WITH ranked_employees AS (
+    SELECT 
+        employee_id,
+        employee_name,
+        department_id,
+        salary,
+        ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+    FROM employees
+)
+SELECT 
+    employee_id,
+    employee_name,
+    department_id,
+    salary
+FROM ranked_employees
+WHERE salary_rank = 3;
+
+
+17.How to find duplicate values in a single column?
+
+SELECT column_name
+FROM table_name
+GROUP BY column_name
+HAVING COUNT(*) > 1;
+
+
+18.How to find duplicate values in a multiple column?
+
+SELECT first_name, last_name
+FROM employees
+GROUP BY first_name, last_name
+HAVING COUNT(*) > 1;
+
+
+19.What are ACID properties? give example for each property
+
+Atomicity: ensures that either all the operations within a transaction are successfully completed or none of them are.
+
+Consistency: Ensures that the database remains in a valid state before and after the transaction.
+
+Isolation: Ensures that the concurrent execution of transactions produces a result that is equivalent to a serial execution of those transactions. 
+
+Durability: Ensures that once a transaction is committed, the changes made by the transaction persist even in the event of a system failure.
+
+
+20.Diff between union and union all ?
+
+The difference between UNION and UNION ALL is that UNION removes duplicate rows from the combined result set, while UNION ALL includes all rows from all SELECT statements, even if they are duplicates.
+
+
+21.Diff between primary key and unique key ?
+
+The primary key uniquely identifies each row in a table and cannot contain NULL values, while a unique key ensures that each value in the columns is unique but allows NULL values (with restrictions).
+
+
+22.Diff between truncate and delete?
+
+TRUNCATE is a faster operation for removing all rows from a table, doesn't log individual row deletions, and cannot be rolled back. DELETE is slower, logs deletions, can be rolled back, and offers more flexibility for selective row deletion. 
+
+
+23.Diff between having and where ?
+
+The WHERE clause filters individual rows before any grouping or aggregation occurs, while the HAVING clause filters groups of rows after grouping and aggregation have taken place.
+
+
+24.SQL query execution order.
+
+FROM clause
+
+WHERE clause
+
+GROUP BY clause
+
+HAVING clause
+
+SELECT clause
+
+ORDER BY clause
+
+LIMIT/OFFSET (optional)
+
+25.What are indexes? Types of Indexes and their differences ?
+
+indexes are data structures that are used to improve the performance of queries by providing quick access to rows in a table.
+Type of Indexes: 
+
+Single-Column Index
+
+Composite Index
+
+Unique Index
+
+Clustered Index
+
+Non-Clustered Index
+
+
+26.What is surrogate key? Give example where you used it and how.
+
+Surrogate keys ensure that each record in the table has a unique identifier, regardless of the actual data.
+
+Example 
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DepartmentID INT,
+    -- Other columns...
+In this scenario, EmployeeID is a surrogate key. It uniquely identifies each employee record in the table.
+
+
+
+
