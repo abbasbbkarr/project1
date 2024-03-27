@@ -1,0 +1,85 @@
+Python
+ 
+1.What is init keyword ?
+
+__init__ is a special method used for initializing newly created objects. 
+
+2.What is self keyword ?
+
+Self is a conventionally used parameter name in method definitions within a class. It 
+
+3.What is lambda functon?
+
+Lambda is a small anonymous function that can have any number of parameters, but can only have one expression.
+
+4.Difference between lambda and normal function?
+
+lambda functions are concise, anonymous functions used for simple operations, while normal functions are named, reusable blocks of code that can contain multiple statements and expressions.
+
+5.What are generators? When to use ? share one example
+
+Defined using functions along with the yield, Generators are particularly useful when dealing with large datasets or when you need to generate a sequence 
+
+6.Python is compiled or interpreted language ? what does it mean?
+
+ Interpreted language, meaning it's executed line by line by the Python interpreter at runtime
+
+7.What is the difference between list and tuples in Python?
+
+Use lists when you need a mutable collection of items, and use tuples when you need an immutable collection of items.
+
+8.What is the difference between list and set in Python?
+
+Use lists when you need to maintain order and allow duplicates, and use sets when you need to store unique elements or perform set operations.
+
+9.When to use dictionary?
+
+Dictionaries in Python are used to store collections of key-value pairs.
+
+10.What are decorators? When to use ? share one example
+
+Decorators are a powerful feature that allows you to modify or extend the behavior of functions or methods without changing their code.
+
+11.What are Iterators?
+
+Iterators are used to iterate over a sequence of elements, allowing you to access each element one at a time.
+
+12.What is slicing?
+
+Slicing provides a convenient and efficient way to extract subsets of elements from sequences
+
+13.What is mutable and immutable?
+
+mutability and immutability in Python refer to whether the state of an object can be changed after it is created.
+
+14.Python is single thread or multithread?
+
+Supports both single-threaded and multithreaded programming.
+
+15.What is GIL?
+
+The Global Interpreter Lock (GIL) is a mutex that protects access to Python objects, preventing multiple native threads from executing.
+
+16.What you don’t like about python?
+
+Sometimes its slow to run the program.
+
+17.What is list Comprehension?
+
+It allows you to construct a new list by applying an expression to each item in an existing iterable.
+
+18.What are Dunder methods? Give examples
+
+Dunder methods are used to implement functionality that is triggered by special syntax or operations
+__init__(self, ...): The constructor method, called when an object is created. It initializes 
+
+19.What does _init_ method do?
+
+It is used to initialize the object's.
+
+20.Difference between array and numpy library.
+
+Both the array module and the numpy library provide functionality for working with arrays in Python, NumPy offers a more powerful and efficient solution. 
+
+
+
