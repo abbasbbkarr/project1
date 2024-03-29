@@ -1,0 +1,106 @@
+Scala
+
+1.What is a trait ? when to use ? 
+
+Traits encapsulate methods and fields that can be reused by multiple classes without inheritance.
+
+2.Difference between trait and sealed trait?
+
+Both traits and sealed traits are used to define abstractions and share behavior across multiple classes.
+
+
+3.What is an abstract class? 
+
+Abstract classes are used as blueprints for other classes to inherit from.
+
+4.What is the difference between an java interface and a scala trait?
+
+Scala traits offer more features and flexibility compared to Java interfaces. Traits can contain both abstract and concrete methods, fields, and constructors, support multiple inheritance.
+
+5.What is a singleton ?
+
+A singleton refers to a design pattern where a class is instantiated only once.
+
+
+6.What is a higher order function?
+
+A higher-order function is a function that takes one or more functions as arguments and/or returns a function as its result.
+
+7.What is a closure ?
+
+Closures are created when you define a function that references variables.
+
+
+8.What is a companion object? What rae the advantages ? example
+
+A companion object is an object that has the same name as a class and is defined in the same file as the class.
+
+Example: MyClass is a class with a companion object also named MyClass. The companion object defines a factory method apply for creating instances of MyClass.
+
+
+9.Nil vs Null vs null vs Nothing vs None vs Unit ?
+
+Nil: represents an empty list.
+Null: represents the absence of a value for reference types.
+null: is a literal representing the absence of a value for reference types.
+Nothing: is a bottom type representing a type with no instances.
+None: represents the absence of a value in Option.
+Unit: represents the absence of a meaningful value, similar to void
+
+10.What is pure function?
+
+A pure function is a function that, given the same input, will always produce the same output and has no side effects.
+
+11.What is SBT and how have you used it? 
+
+SBT (Scala Build Tool) is an open-source build tool for Scala and Java projects. It is designed to simplify the process of building, testing, and packaging Scala applications
+
+12.What is currying?
+
+Used to transform a function that takes multiple arguments into a series of functions,.
+
+
+13.Difference between currying and higher-order functions ?
+
+Currying can be seen as a specific application of higher-order functions, as it involves transforming functions through the use of other functions.
+
+
+14.Difference between var and val?
+
+Use var for variables whose values may change over time.
+Use val for variables whose values remain constant and do not change once assigned.
+
+
+15.What is case class?
+
+Case classes provide a convenient and concise way to define immutable data structures in Scala.
+
+16.Why/when to use case class? Example ?
+
+Case classes provide a concise and expressive way to define immutable data structures, allowing for easy creation, 
+
+17.Difference between case class and normal class?
+
+case classes are specialized for immutable data modeling and pattern matching, Normal classes offer more flexibility but require manual implementation of constructors.
+
+18.Scala type hierarchy?
+
+         Any
+        /   \
+   AnyVal   AnyRef
+      |        |
+   [Value]  [Reference]
+      |        |
+    Null   [User-defined classes]
+            /          \
+           ...        ...
+            |            |
+         Null         Nothing
+
+19.What are partially applied functions?
+
+Partially is a functions that are created by applying only a subset of the arguments to a function, resulting in a new function 
+
+20.What is tail recursion.?
+
+Tail recursion is a special form of recursion where the recursive call is the last operation performed by the function before returning its result.
