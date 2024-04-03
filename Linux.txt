@@ -1,0 +1,83 @@
+    • How do you display the first 10 lines of a file using the command line?
+
+head -n 10 file1.txt 
+
+
+    • How do you display the last 5 lines of a file using the command line?
+
+tail -n 5 file1.txt 
+
+
+    • How do you sort the contents of a file in ascending order using the command line?
+
+sort file.txt
+
+    • How do you count the number of occurrences of a specific word in a file using the command line?
+
+grep -o 'your_word' file.txt | wc -l
+
+
+    • How do you find and replace a specific word in a file using the command line?
+
+sed -i 's/old_word/new_word/g' file.txt
+
+
+    • How do you display the size of a file in human-readable format using the command line?
+
+ls -lh file.txt
+
+    • How do you display the current date and time in a specific format using the command line?
+
+date +"%Y-%m-%d %H:%M:%S"
+
+
+    • How do you find the process ID (PID) of a running process using the command line?
+
+pidof process_name
+
+
+    • How do you kill a process using its process ID (PID) using the command line?
+
+kill -9 "   "
+
+    • How do you create a compressed tar archive of a directory and exclude specific files from it using the command line?
+
+tar - "    "  --exclude='file1.txt' --exclude='file2.txt' my_directory
+
+    • How do you set an environment variable in Linux using the command line?
+
+echo "  "
+
+
+    • How do you list all installed packages on a Debian-based Linux distribution using the command line?apt 
+
+list --installed | grep nginx
+
+
+    • How do you change the permissions of a file to read-only for the owner and group using the command line?
+
+chmod -R 440 directory
+
+    • How do you find all files with a specific extension in a directory and its subdirectories using the command line?
+
+find /path/to/directory -type f -name "*.txt"
+
+
+    • How do you create a backup of a file with a timestamp in its filename using the command line?
+
+cp filename "  "
+
+
+    • How do you search for a specific string in all files within a directory and its subdirectories using the command line?
+
+grep -r "your_string" /path/to/directory
+
+    • How do you display the current network configuration (IP address, subnet mask, etc.) using the command line?
+
+nmcli
+
+    • How do you create a new user with a specific home directory and set their password using the command line?
+
+    • How do you display the available disk space on your system using the command line?
+
+    • How do you schedule a command or script to run at a specific time using the cron system?
